@@ -1,10 +1,9 @@
 package com.justbrandsafrica.assessment.service;
 
 import com.justbrandsafrica.assessment.model.ProfileHolder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -19,7 +18,7 @@ import java.util.List;
 @Path("assessment")
 public class ProfileCheckerService {
 
-    Logger logger = LoggerFactory.getLogger(ProfileCheckerService.class);
+//    Logger logger = LoggerFactory.getLogger(ProfileCheckerService.class);
 
     @POST
     @Path("phase1")
@@ -48,11 +47,9 @@ public class ProfileCheckerService {
 
                 System.out.println("No such field exists.");
 
-                e.printStackTrace();
+//                e.printStackTrace();
             }
-
         }
-
         return Response.ok(fieldsStillRequired).build();
     }
 
@@ -78,16 +75,14 @@ public class ProfileCheckerService {
                     fieldsStillRequired.add(requiredField);
                 }
 
-                System.out.println("value : " +value);
+                System.out.println("value : " + value);
             } catch (NoSuchFieldException | IllegalAccessException e) {
 
                 System.out.println("No such field exists.");
 
-                e.printStackTrace();
+//                e.printStackTrace();
             }
-
         }
-
         for(String requiredField: fieldsStillRequired)
         {
             Field field = null;
@@ -100,17 +95,14 @@ public class ProfileCheckerService {
                     field.set(profile.getProfile(),"Updated");
                 }
 
-                System.out.println("value : " +value);
+                System.out.println("value : " + value);
             } catch (NoSuchFieldException | IllegalAccessException e) {
 
                 System.out.println("No such field exists.");
 
-                e.printStackTrace();
+//                e.printStackTrace();
             }
-
         }
-
         return Response.ok(profile).build();
     }
-
 }
